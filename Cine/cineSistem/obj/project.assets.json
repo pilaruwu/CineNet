@@ -11908,11 +11908,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PILAR\\Downloads\\Cine\\cineSistem\\Cine.csproj",
+      "projectUniqueName": "C:\\Users\\PILAR\\OneDrive\\Escritorio\\NET\\Github\\CineNet\\Cine\\cineSistem\\Cine.csproj",
       "projectName": "Cine",
-      "projectPath": "C:\\Users\\PILAR\\Downloads\\Cine\\cineSistem\\Cine.csproj",
+      "projectPath": "C:\\Users\\PILAR\\OneDrive\\Escritorio\\NET\\Github\\CineNet\\Cine\\cineSistem\\Cine.csproj",
       "packagesPath": "C:\\Users\\PILAR\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PILAR\\Downloads\\Cine\\cineSistem\\obj\\",
+      "outputPath": "C:\\Users\\PILAR\\OneDrive\\Escritorio\\NET\\Github\\CineNet\\Cine\\cineSistem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PILAR\\AppData\\Roaming\\NuGet\\NuGet.Config",
