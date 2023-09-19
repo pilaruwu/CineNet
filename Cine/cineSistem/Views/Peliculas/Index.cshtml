@@ -1,0 +1,83 @@
+﻿@model IEnumerable<cineSistem.Models.Pelicula>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<h1 class="text-center">Cartelera CINE</h1>
+@if (TempData.ContainsKey("MensajeExito"))
+{
+    <div class="alert alert-success mensaje-exito text-center">
+        @TempData["MensajeExito"]
+    </div>
+}
+<style>
+    ul > li{
+        display:inline-block;
+    }
+</style>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card h-100">
+                    <img src="@Html.DisplayFor(modelItem => item.Image)" class="card-img-top " style="height:200px!important" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p class="card-text"><small class="text-muted">Genero: @Html.DisplayFor(modelItem => item.Gender)</small></p>
+                        <p>Calificar:</p>
+                        <ul>
+                            <li>
+                                <a asp-controller="RankingPeliculas" asp-action="Calificar" asp-route-idPel="@item.IdPeli" asp-route-rank="1" asp-route-nombre="@item.Name">
+                                    <i class="fa-solid fa-star"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="RankingPeliculas" asp-action="Calificar" asp-route-idPel="@item.IdPeli" asp-route-rank="2" asp-route-nombre="@item.Name">
+                                    <i class="fa-solid fa-star"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="RankingPeliculas" asp-action="Calificar" asp-route-idPel="@item.IdPeli" asp-route-rank="3" asp-route-nombre="@item.Name">
+                                    <i class="fa-solid fa-star"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="RankingPeliculas" asp-action="Calificar" asp-route-idPel="@item.IdPeli" asp-route-rank="4" asp-route-nombre="@item.Name">
+                                    <i class="fa-solid fa-star"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="RankingPeliculas" asp-action="Calificar" asp-route-idPel="@item.IdPeli" asp-route-rank="5" asp-route-nombre="@item.Name">
+                                    <i class="fa-solid fa-star"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://kit.fontawesome.com/38595e06c7.js" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+
+        var mensajeExito = $(".mensaje-exito");
+
+        if (mensajeExito.length > 0) {
+            setTimeout(function () {
+                mensajeExito.fadeOut("slow");
+            }, 5000); 
+        }
+    });
+</script>

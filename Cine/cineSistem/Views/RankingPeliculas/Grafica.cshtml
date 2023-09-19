@@ -1,0 +1,41 @@
+﻿@model IEnumerable<cineSistem.Models.RankingPelicula>
+
+@{
+    ViewData["Title"] = "Grafica";
+}
+
+<h1>Gráfica</h1>
+
+<canvas id="graficaPeliculas" width="400" height="200"></canvas>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    // Obtener los datos de la vista
+    var nombresPeliculas = @Html.Raw(Json.Serialize(ViewBag.NombresPeliculas));
+    var calificacionesPromedio = @Html.Raw(Json.Serialize(ViewBag.CalificacionesPromedio));
+
+    // Crear la gráfica de barras
+    var ctx = document.getElementById('graficaPeliculas').getContext('2d');
+    var miGrafica = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: nombresPeliculas,
+            datasets: [{
+                label: 'Calificación Promedio',
+                data: calificacionesPromedio,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 5 // Puedes ajustar este valor según tu escala de calificación
+                }
+            }
+        }
+    });
+</script>
